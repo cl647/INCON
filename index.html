@@ -10,11 +10,11 @@
     <title>INPN Group - University of Cambridge</title>
 
     <style>
-        /* 1. 核心自适应配置 */
+        /* 1. 核心布局配置：严格单列居中 */
         :root {
             --primary-blue: #003B5C;
             --accent-blue: #0072b2;
-            --max-width: 1100px; /* 限制网页最大宽度，防止畸形 */
+            --container-width: 900px; /* 统一样式宽度，建议 800px-1000px 之间 */
         }
 
         body {
@@ -23,47 +23,36 @@
             padding: 0;
             color: #333;
             line-height: 1.6;
-            background-color: #fcfcfc;
+            background-color: #f9f9f9;
         }
 
-        /* 中央容器：规范所有内容的宽度 */
+        /* 统一容器：所有部分等宽居中 */
         .container {
-            max-width: var(--max-width);
+            max-width: var(--container-width);
             margin: 0 auto;
             padding: 0 20px;
-            box-sizing: border-box;
         }
 
-        /* 2. Banner 优化：保持全屏背景但内容对齐容器 */
+        /* 2. Banner 优化 */
         .banner {
-            position: relative;
             background-color: var(--primary-blue);
-            height: 350px;
+            height: 250px; /* 适当缩小高度使重心上移 */
             color: white;
             display: flex;
             align-items: center;
-            overflow: hidden;
-        }
-
-        .banner-bg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            opacity: 0.4;
+            text-align: center; /* Banner 文字居中 */
         }
 
         .banner-content {
-            position: relative;
-            z-index: 1;
             width: 100%;
         }
 
         .banner-content h1 {
-            font-size: clamp(1.8rem, 5vw, 3rem); /* 字号随屏幕自适应 */
+            font-size: 2.5rem;
             margin: 0;
         }
 
-        /* 3. 导航栏自适应 */
+        /* 3. 导航栏居中 */
         .navigation-wrap {
             background: white;
             border-bottom: 1px solid #eee;
@@ -72,7 +61,7 @@
             z-index: 100;
         }
 
-        table.navigation {
+        .navigation {
             width: 100%;
             border-collapse: collapse;
         }
@@ -86,7 +75,7 @@
             text-decoration: none;
             color: #555;
             font-weight: 500;
-            padding: 10px 15px;
+            padding: 10px 20px;
         }
 
         .navigation a:hover, .navigation a.current {
@@ -94,87 +83,70 @@
             border-bottom: 3px solid var(--primary-blue);
         }
 
-        /* 4. 老师介绍板块：支持手机端自动堆叠 */
-        .leader-section {
-            display: flex;
-            flex-wrap: wrap; /* 关键：空间不足自动换行 */
-            gap: 40px;
+        /* 4. 通用板块样式：确保上下等宽 */
+        section {
             background: white;
-            padding: 40px 0;
-            border-bottom: 1px solid #eee;
-            margin-bottom: 30px;
+            padding: 40px;
+            margin: 25px 0;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 10px;
+            margin-top: 0;
+            color: var(--primary-blue);
+            font-size: 1.6rem;
+        }
+
+        /* 5. PI 介绍区：内部依然用 Flex 但严格在容器内 */
+        .leader-info-box {
+            display: flex;
+            align-items: center;
+            gap: 40px;
         }
 
         .leader-img {
             width: 180px;
             height: 180px;
-            border-radius: 50%; /* 圆形头像更现代 */
+            border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+            border: 3px solid #eee;
         }
 
-        .leader-info {
-            flex: 1;
-            min-width: 300px; /* 保证文字不会挤压太严重 */
+        /* 6. 新闻列表：单列垂直排列 */
+        .news-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .leader-info h2 {
-            margin: 0 0 10px 0;
-            color: var(--primary-blue);
-            font-size: 2rem;
-        }
-
-        /* 5. 下方新闻与研究方向：自适应网格 */
-        .content-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr; /* PC端比例 */
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .section-title {
-            border-bottom: 2px solid var(--primary-blue);
-            padding-bottom: 8px;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-            color: var(--primary-blue);
-        }
-
-        .card {
-            background: white;
-            padding: 25px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            height: 100%;
-        }
-
-        /* 新闻条目样式 */
         .news-item {
             display: flex;
-            margin-bottom: 15px;
-            border-left: 3px solid var(--accent-blue);
-            padding-left: 15px;
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
         }
+
+        .news-item:last-child { border-bottom: none; }
 
         .news-date {
             font-weight: bold;
             color: var(--accent-blue);
-            min-width: 90px;
+            min-width: 100px;
+            flex-shrink: 0;
         }
 
-        /* 手机端适配：当屏幕小于 800px 时 */
-        @media (max-width: 800px) {
-            .content-grid {
-                grid-template-columns: 1fr; /* 改为单列 */
-            }
-            .leader-section {
-                justify-content: center;
+        /* 手机端适配 */
+        @media (max-width: 768px) {
+            .leader-info-box {
+                flex-direction: column;
                 text-align: center;
             }
-            .navigation td {
-                padding: 10px 5px;
-                font-size: 0.9rem;
-            }
+            section { padding: 20px; }
+            .navigation a { padding: 10px 8px; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -182,7 +154,6 @@
 <body>
 
     <div class="banner">
-        <img src="assets/banner.jpg" class="banner-bg" alt="Cambridge Banner">
         <div class="container banner-content">
             <h1>INPN Group</h1>
             <p>Intelligent Neuroimaging for Precision Neuroscience</p>
@@ -204,69 +175,74 @@
     </div>
 
     <div class="container">
-        <section class="leader-section">
-            <img src="assets/Chao Li.jpg" alt="Prof. Chao Li" class="leader-img">
-            <div class="leader-info">
-                <h2>Prof. Chao Li</h2>
-                <p style="font-weight: bold; color: #666; margin-bottom: 5px;">Senior Research Fellow / Professor</p>
-                <p style="margin-top: 0;">Department of Clinical Neurosciences, University of Cambridge, UK</p>
-                <p>
-                    Prof. Li's research focuses on the intersection of AI and Clinical Neuroscience. 
-                    He has published extensively in top-tier journals including <em>Nature Communications</em>, 
-                    <em>NeuroImage</em>, and <em>MICCAI</em>.
-                </p>
-                <div style="margin-top: 15px;">
-                    <a href="mailto:clxxx@cam.ac.uk" style="color:var(--accent-blue); margin-right:15px;">Email</a>
-                    <a href="#" style="color:var(--accent-blue); margin-right:15px;">Google Scholar</a>
-                    <a href="#" style="color:var(--accent-blue);">Twitter/X</a>
+        
+        <section>
+            <h2>About the Team</h2>
+            <p>
+                The Intelligent Neuroimaging for Precision Neuroscience (INPN) group, led by Prof. Chao Li at the University of Cambridge, 
+                focuses on developing computational methods to decode the complexity of brain diseases. 
+                Our research integrates multi-modal MRI, tissue pathology, and spatial transcriptomics.
+            </p>
+        </section>
+
+        <section>
+            <h2>Principal Investigator</h2>
+            <div class="leader-info-box">
+                <img src="assets/Chao Li.jpg" alt="Prof. Chao Li" class="leader-img">
+                <div>
+                    <h3 style="margin:0; font-size:1.8rem;">Prof. Chao Li</h3>
+                    <p style="color:#666; margin: 5px 0;">Department of Clinical Neurosciences, University of Cambridge, UK</p>
+                    <p>Prof. Li's research focuses on the intersection of AI and Clinical Neuroscience. He has published extensively in <em>Nature Communications</em>, <em>NeuroImage</em>, and <em>MICCAI</em>.</p>
+                    <div style="margin-top: 10px;">
+                        <a href="mailto:clxxx@cam.ac.uk" style="color:var(--accent-blue); margin-right:15px; text-decoration:none;">Email</a>
+                        <a href="#" style="color:var(--accent-blue); margin-right:15px; text-decoration:none;">Google Scholar</a>
+                        <a href="#" style="color:var(--accent-blue); text-decoration:none;">Twitter/X</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <div class="content-grid">
-            <div>
-                <h3 class="section-title">Latest News</h3>
-                <div class="card">
-                    <div class="news-item">
-                        <span class="news-date">Dec 2025</span>
-                        <span>Our paper on 3D Brain Tumor Infiltration was accepted by MICCAI.</span>
-                    </div>
-                    <div class="news-item">
-                        <span class="news-date">Oct 2025</span>
-                        <span>Prof. Chao Li gave a keynote speech at the Precision Medicine Summit.</span>
-                    </div>
-                    <div class="news-item">
-                        <span class="news-date">Sep 2025</span>
-                        <span>Welcoming our new PhD students joining the INPN group!</span>
-                    </div>
-                    <a href="#" style="color: var(--accent-blue); font-size: 0.9rem;">View All News →</a>
+        <section>
+            <h2>Latest News</h2>
+            <div class="news-list">
+                <div class="news-item">
+                    <span class="news-date">Dec 2025</span>
+                    <span>Our paper on 3D Brain Tumor Infiltration was accepted by MICCAI.</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Oct 2025</span>
+                    <span>Prof. Chao Li gave a keynote speech at the Precision Medicine Summit.</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Sep 2025</span>
+                    <span>Welcoming our new PhD students joining the INPN group!</span>
                 </div>
             </div>
+            <p style="margin-top:20px;"><a href="#" style="color:var(--accent-blue); text-decoration:none;">View All News →</a></p>
+        </section>
 
-            <div>
-                <h3 class="section-title">Research Areas</h3>
-                <div class="card">
-                    <ul style="padding-left: 20px; margin: 0;">
-                        <li style="margin-bottom: 10px;">AI-driven Neuroimaging</li>
-                        <li style="margin-bottom: 10px;">Spatial Transcriptomics</li>
-                        <li style="margin-bottom: 10px;">Radiomics & Pathomics</li>
-                        <li style="margin-bottom: 10px;">Clinical Decision Support</li>
-                    </ul>
-                </div>
+        <section>
+            <h2>Research Areas</h2>
+            <ul style="columns: 2; -webkit-columns: 2; padding-left: 20px;"> <li style="margin-bottom: 10px;">AI-driven Neuroimaging & Diagnosis</li>
+                <li style="margin-bottom: 10px;">Spatial Transcriptomics Analysis</li>
+                <li style="margin-bottom: 10px;">Radiomics & Digital Pathomics</li>
+                <li style="margin-bottom: 10px;">Clinical Decision Support Systems</li>
+                <li style="margin-bottom: 10px;">Computational Brain Modeling</li>
+                <li style="margin-bottom: 10px;">Precision Oncology & Neuroscience</li>
+            </ul>
+        </section>
 
-                <h3 class="section-title" style="margin-top: 30px;">Join Us</h3>
-                <div class="card" style="background: #fff9db; border-color: #fab005;">
-                    <p style="margin: 0; font-size: 0.95rem;">
-                        We are looking for PhD students and Postdocs with CS or Medical Imaging backgrounds. 
-                        <strong><a href="mailto:clxxx@cam.ac.uk" style="color: #e67e22;">Apply Now →</a></strong>
-                    </p>
-                </div>
-            </div>
-        </div>
+        <section style="background: #fff9db; border-color: #fab005;">
+            <h2 style="color: #e67e22; border-bottom-color: #e67e22;">Join Our Team</h2>
+            <p>We are constantly looking for motivated PhD students and Postdocs with strong backgrounds in CS, Engineering, or Medical Imaging.</p>
+            <p><strong>Contact:</strong> Please send your CV to <a href="mailto:clxxx@cam.ac.uk" style="color: #e67e22;">clxxx@cam.ac.uk</a></p>
+        </section>
+
     </div>
 
-    <footer style="background: #f4f4f4; padding: 30px 0; text-align: center; color: #888; font-size: 0.9rem;">
+    <footer style="padding: 40px 0; text-align: center; color: #888; font-size: 0.9rem;">
         <div class="container">
+            <hr style="border:0; border-top:1px solid #eee; margin-bottom:20px;">
             &copy; 2025 Intelligent Neuroimaging for Precision Neuroscience | University of Cambridge
         </div>
     </footer>
