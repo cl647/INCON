@@ -1,32 +1,32 @@
 /* ==========================================================================
-   INPN Group Global Styles
+   INPN Group - New Format (Single Column & Bottom Bio)
    ========================================================================== */
 
 /* 1. 核心变量与重置 */
+@import url('https://fonts.googleapis.com/css?family=Roboto%7CRoboto+Slab');
+
 :root {
-    --primary-blue: #003B5C; /* 剑桥深蓝 */
-    --accent-blue: #52739e;  /* 导航与强调色 */
-    --text-main: #333333;
-    --text-light: #666666;
-    --bg-gray: #f8fafc;
-    --max-width: 1000px;     /* 严格控制全站最大宽度，防止畸形 */
+    --primary-blue: #003B5C; 
+    --accent-blue: #52739e;  
+    --heading-maroon: #813c54; 
+    --max-width: 1000px; /* 严格限制最大宽度，防止界面畸形 */
 }
 
 * {
-    box-sizing: border-box; /* 核心：确保边距不撑破宽度 */
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: var(--bg-gray);
-    color: var(--text-main);
-    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    background-color: #fafafa;
+    color: #505050;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-/* 2. 布局容器：解决居中与等宽问题的核心 */
+/* 2. 居中容器：确保所有部分从上到下等宽 */
 .page-container {
     width: 95%;
     max-width: var(--max-width);
@@ -34,9 +34,10 @@ body {
     display: block;
 }
 
-/* 3. Banner 区域：背景图 + 蓝色叠加滤镜 */
+/* 3. Banner 修复：恢复背景图并添加蓝色叠加层 */
 .banner {
     background-color: var(--primary-blue);
+    /* 使用叠加层确保文字清晰，同时显示 banner.jpg */
     background-image: linear-gradient(rgba(0, 59, 92, 0.75), rgba(0, 59, 92, 0.75)), url('../assets/banner.jpg');
     background-size: cover;
     background-position: center;
@@ -47,12 +48,12 @@ body {
 }
 
 .banner h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: 10px;
-    font-weight: 700;
+    font-family: 'Roboto Slab', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin: 0;
 }
 
-/* 4. 导航栏：居中且置顶 */
+/* 4. 导航栏居中样式 */
 .navigation-wrap {
     background: white;
     border-bottom: 1px solid #ddd;
@@ -76,38 +77,35 @@ body {
     color: #555;
     font-weight: 500;
     padding: 10px 15px;
-    transition: color 0.3s;
+    font-size: 1.1em;
 }
 
 .navigation a.current {
-    color: var(--primary-blue);
-    border-bottom: 3px solid var(--primary-blue);
-}
-
-.navigation a:hover {
     color: var(--accent-blue);
+    border-bottom: 3px solid var(--accent-blue);
 }
 
-/* 5. 内容板块通用：白色卡片样式 */
+/* 5. 规范化 Section 板块：单列等宽排列 */
 section {
     background: white;
     margin: 30px 0;
     padding: 40px;
     border-radius: 8px;
     border: 1px solid #eee;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-    width: 100%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    width: 100%; /* 强制等宽 */
 }
 
 h2 {
-    color: var(--primary-blue);
+    font-family: 'Roboto Slab', serif;
+    color: var(--heading-maroon);
     border-bottom: 2px solid var(--accent-blue);
     padding-bottom: 12px;
     margin-bottom: 25px;
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
-/* 6. PI 介绍区：上下分层布局（解决文字溢出核心） */
+/* 6. PI 板块新格式：头像姓名在上，长简介在下 */
 .pi-header {
     display: flex;
     align-items: center;
@@ -116,78 +114,63 @@ h2 {
 }
 
 .pi-img {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #f0f0f0;
-    flex-shrink: 0; /* 禁止图片被挤压 */
+    border: 4px solid #f0f0f0;
+    flex-shrink: 0;
 }
 
 .pi-short-info h3 {
+    font-family: 'Roboto Slab', serif;
     font-size: 2rem;
     color: var(--primary-blue);
-    margin: 0 0 10px 0;
+    margin: 0;
 }
 
 .pi-info-line {
     font-weight: bold;
-    color: #555;
-    margin-bottom: 5px;
+    color: #666;
+    margin: 5px 0;
 }
 
 .pi-links {
-    margin-top: 15px;
-    font-size: 0.95rem;
+    margin-top: 10px;
 }
 
 .pi-links a {
     color: var(--accent-blue);
     text-decoration: none;
-    margin: 0 8px;
+    margin-right: 15px;
+    font-weight: bold;
 }
 
+/* 长简介独立板块，彻底解决超出问题 */
 .pi-bio {
     border-top: 1px dashed #eee;
     padding-top: 20px;
 }
 
 .pi-bio p {
-    text-align: justify; /* 文字两端对齐 */
+    text-align: justify;
     line-height: 1.8;
     color: #444;
 }
 
-/* 7. 新闻列表与研究网格 */
+/* 7. 新闻列表与页脚 */
 .news-item {
     display: flex;
     padding: 12px 0;
     border-bottom: 1px solid #f1f1f1;
-    gap: 20px;
 }
-
-.news-item:last-child { border-bottom: none; }
 
 .date-label {
     color: var(--accent-blue);
     font-weight: bold;
-    min-width: 90px;
-    flex-shrink: 0;
+    min-width: 100px;
 }
 
-.research-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.research-card {
-    padding: 15px;
-    border-left: 4px solid var(--accent-blue);
-    background: #fcfcfc;
-}
-
-/* 8. 页脚与手机适配 */
 footer {
     text-align: center;
     padding: 60px 0;
@@ -195,11 +178,11 @@ footer {
     font-size: 0.9rem;
 }
 
+/* 8. 自适应：手机端自动变为垂直排列 */
 @media (max-width: 768px) {
     .pi-header {
         flex-direction: column;
         text-align: center;
     }
     section { padding: 25px; }
-    .navigation a { padding: 10px 5px; font-size: 0.85rem; }
 }
