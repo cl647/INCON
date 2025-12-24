@@ -12,31 +12,31 @@
     <title>2025 CMMCA Workshop</title>
 
     <style>
-        /* 新增排版样式：处理图片与文字并排 */
         .paper-list {
-            list-style: none; /* 移除默认圆点 */
+            list-style: none;
             padding: 0;
             margin: 20px 0;
         }
 
         .paper-item {
-            display: flex; /* 开启弹性布局 */
-            align-items: flex-start; /* 顶部对齐 */
-            margin-bottom: 30px; /* 每篇论文之间的间距 */
-            gap: 20px; /* 图片与文字的间距 */
+            display: flex;
+            align-items: flex-start; /* 顶部对齐：文字多时，图片依然在最上方 */
+            margin-bottom: 40px; 
+            gap: 25px;
         }
 
         .paper-preview-img {
-            width: 160px; /* 预览图宽度 */
-            height: 110px; /* 预览图高度 */
-            object-fit: cover; /* 保证图片在固定尺寸下不缩放变形 */
+            /* 图片尺寸被锁定，不会随文字增多而改变 */
+            width: 160px; 
+            height: 110px; 
+            object-fit: cover; 
             border: 1px solid #ddd;
             border-radius: 4px;
-            flex-shrink: 0; /* 防止图片被挤压 */
+            flex-shrink: 0; /* 核心属性：防止图片在空间不足时被挤压 */
         }
 
         .paper-content {
-            flex: 1; /* 占据剩余空间 */
+            flex: 1; 
         }
 
         .paper-title {
@@ -44,19 +44,29 @@
             font-weight: bold;
             display: block;
             margin-bottom: 5px;
-            line-height: 1.3;
+            color: #333;
         }
 
         .paper-author {
             font-style: italic;
             display: block;
-            margin-bottom: 10px;
-            color: #555;
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        /* 新增：描述文字的样式 */
+        .paper-desc {
+            font-size: 0.95em;
+            color: #444;
+            line-height: 1.5;
+            margin-bottom: 12px;
+            display: block; /* 确保占据一行 */
         }
 
         .paper-links a {
             color: #007bff;
             text-decoration: none;
+            font-weight: bold;
         }
 
         .paper-links a:hover {
@@ -82,21 +92,11 @@
 
     <table class="navigation">
         <tr>
-            <td class="navigation">
-                <a class="current" title="Workshop Home Page" href="index.html">Home</a>
-            </td>
-            <td class="navigation">
-                <a title="MRI" href="page_mri/index.html">MRI </a>
-            </td>
-            <td class="navigation">
-                <a title="Tissue" href="page_tissue/index.html">Tissue </a>
-            </td>
-            <td class="navigation">
-                <a title="Gene" href="page_gene/index.html">Gene </a>
-            </td>
-            <td class="navigation">
-                <a title="Demo" href="page_demo/index.html">Other </a>
-            </td>
+            <td class="navigation"><a class="current" title="Workshop Home Page" href="index.html">Home</a></td>
+            <td class="navigation"><a title="MRI" href="page_mri/index.html">MRI </a></td>
+            <td class="navigation"><a title="Tissue" href="page_tissue/index.html">Tissue </a></td>
+            <td class="navigation"><a title="Gene" href="page_gene/index.html">Gene </a></td>
+            <td class="navigation"><a title="Demo" href="page_demo/index.html">Other </a></td>
         </tr>
     </table>
 
@@ -106,25 +106,29 @@
         <h2>Published</h2>
         <ul class="paper-list">
             <li class="paper-item">
-                <img src="LHY1007/INPN/assets/avatar.jpg" alt="Preview" class="paper-preview-img">
+                <img src="assets/avatar.jpg" alt="Preview" class="paper-preview-img">
                 <div class="paper-content">
                     <span class="paper-title">A Lightweight Optimization Framework for Estimating 3D Brain Tumor Infiltration</span>
                     <span class="paper-author">Jonas Weidner</span>
+                    <span class="paper-desc">This work introduces a novel lightweight optimization framework specifically designed for high-resolution 3D brain tumor imaging. It significantly reduces computational overhead while maintaining high accuracy in infiltration estimation.</span>
                     <div class="paper-links">
                         <a href="assets/poster/oral/01/01_poster.pdf" target="_blank">Paper</a> |
-                        <a href="https://github.com/your-username/project-repo-1" target="_blank">Code</a>
+                        <a href="https://github.com/CMMCA-Workshop/example1" target="_blank">Code</a>
                     </div>
                 </div>
             </li>
+        </ul>
 
+        <ul class="paper-list">
             <li class="paper-item">
-                <img src="LHY1007/INPN/assets/avatar.jpg" alt="Preview" class="paper-preview-img">
+                <img src="assets/avatar.jpg" alt="Preview" class="paper-preview-img">
                 <div class="paper-content">
-                    <span class="paper-title">A data-driven approach to optimise parameters of a computational digital twin model in response to SBRT on MR-Linac</span>
-                    <span class="paper-author">Valentin Septiers</span>
+                    <span class="paper-title">A Lightweight Optimization Framework for Estimating 3D Brain Tumor Infiltration</span>
+                    <span class="paper-author">Jonas Weidner</span>
+                    <span class="paper-desc">This work introduces a novel lightweight optimization framework specifically designed for high-resolution 3D brain tumor imaging. It significantly reduces computational overhead while maintaining high accuracy in infiltration estimation.</span>
                     <div class="paper-links">
-                        <a href="assets/poster/oral/02/02_poster.pdf" target="_blank">Paper</a> |
-                        <a href="https://github.com/your-username/project-repo-2" target="_blank">Code</a>
+                        <a href="assets/poster/oral/01/01_poster.pdf" target="_blank">Paper</a> |
+                        <a href="https://github.com/CMMCA-Workshop/example1" target="_blank">Code</a>
                     </div>
                 </div>
             </li>
@@ -135,45 +139,38 @@
         <h2>Under review</h2>
         <ul class="paper-list">
             <li class="paper-item">
-                <img src="LHY1007/INPN/assets/avatar.jpg" alt="Preview" class="paper-preview-img">
+                <img src="assets/avatar.jpg" alt="Preview" class="paper-preview-img">
                 <div class="paper-content">
                     <span class="paper-title">FMIC-AI: Annotation-Free Tumor Cell Detection in Fluorescence Microscopy via Self-Supervised Anomaly</span>
                     <span class="paper-author">Yinglan Kuang</span>
+                    <span class="paper-desc">A self-supervised learning approach for detecting tumor cells without the need for manual annotations, leveraging anomaly detection techniques in fluorescence microscopy.</span>
                     <div class="paper-links">
                         <a href="assets/poster/poster/03/03_poster.pdf" target="_blank">Paper</a> |
-                        <a href="https://github.com/your-username/project-repo-3" target="_blank">Code</a>
-                    </div>
-                </div>
-            </li>
-
-            <li class="paper-item">
-                <img src="LHY1007/INPN/assets/avatar.jpg" alt="Preview" class="paper-preview-img">
-                <div class="paper-content">
-                    <span class="paper-title">Redefining spectral unmixing for in-vivo brain tissue analysis from hyperspectral imaging</span>
-                    <span class="paper-author">Martin Hartenberger</span>
-                    <div class="paper-links">
-                        <a href="assets/poster/poster/06/06_poster.pdf" target="_blank">Paper</a> |
-                        <a href="https://github.com/your-username/project-repo-4" target="_blank">Code</a>
-                    </div>
-                </div>
-            </li>
-
-            <li class="paper-item">
-                <img src="LHY1007/INPN/assets/avatar.jpg" alt="Preview" class="paper-preview-img">
-                <div class="paper-content">
-                    <span class="paper-title">Towards Robust Skin Lesion Classification: Lesion Segmentation, Mole Collision Simulation and Hierarchical learning</span>
-                    <span class="paper-author">Hang Nguyen</span>
-                    <div class="paper-links">
-                        <a href="assets/poster/poster/08/08_poster.pdf" target="_blank">Paper</a> |
-                        <a href="https://github.com/your-username/project-repo-5" target="_blank">Code</a>
+                        <a href="https://github.com/CMMCA-Workshop/example2" target="_blank">Code</a>
                     </div>
                 </div>
             </li>
         </ul>
+
+        <ul class="paper-list">
+            <li class="paper-item">
+                <img src="assets/avatar.jpg" alt="Preview" class="paper-preview-img">
+                <div class="paper-content">
+                    <span class="paper-title">FMIC-AI: Annotation-Free Tumor Cell Detection in Fluorescence Microscopy via Self-Supervised Anomaly</span>
+                    <span class="paper-author">Yinglan Kuang</span>
+                    <span class="paper-desc">A self-supervised learning approach for detecting tumor cells without the need for manual annotations, leveraging anomaly detection techniques in fluorescence microscopy.</span>
+                    <div class="paper-links">
+                        <a href="assets/poster/poster/03/03_poster.pdf" target="_blank">Paper</a> |
+                        <a href="https://github.com/CMMCA-Workshop/example2" target="_blank">Code</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        
     </section>
 
     <footer>
-        &copy; Conference Organizers
+        &copy; 2025 CMMCA Workshop Organizers
     </footer>
 
 </body>
