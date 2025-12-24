@@ -3,73 +3,207 @@
 
 <head>
     <base href=".">
-    <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
-    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
-    <meta name="description" content="Intelligent Neuroimaging for Precision Neuroscience1">
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
+    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css" />
+    <meta name="description" content="Intelligent Neuroimaging for Precision Neuroscience (INPN) - Prof. Chao Li's Group">
     <meta name="resource-type" content="document">
     <meta name="distribution" content="global">
-    <meta name="KeyWords" content="Conference">
-    <title>Intelligent Neuroimaging for Precision Neuroscience2</title>
+    <meta name="KeyWords" content="Neuroimaging, Precision Medicine, AI, Cambridge, Chao Li">
+    <title>INPN - Intelligent Neuroimaging for Precision Neuroscience</title>
+
+    <style>
+        /* 全局样式优化 */
+        :root {
+            --primary-blue: #003B5C; /* 偏向剑桥蓝的深色 */
+            --accent-blue: #0072b2;
+            --light-gray: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Banner 文字层重新排版 */
+        .banner {
+            position: relative;
+            background-color: var(--primary-blue);
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .banner-text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            transform: translateY(-50%);
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .banner-text-overlay h1 {
+            font-size: 2.8em;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .banner-text-overlay p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        /* 团队带头人板块 Flexbox 布局 */
+        .leader-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .leader-img {
+            width: 200px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .leader-bio {
+            flex: 1;
+        }
+
+        .leader-bio h3 {
+            margin-top: 0;
+            color: var(--primary-blue);
+            font-size: 1.8em;
+        }
+
+        /* 响应式网格 (新闻 & 研究方向) */
+        .home-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .news-item {
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+
+        .news-date {
+            font-weight: bold;
+            color: var(--accent-blue);
+            margin-right: 10px;
+        }
+
+        .section-box {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 10px;
+            color: var(--primary-blue);
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="banner">
-        <img src="assets/banner.jpg" alt="Conference Template Banner" style="width: 100%;margin-top: 0px;">
-        <div class="top-left">
-            <span class="title1">CMMCA</span><span class="title2">Workshop</span> <img src="assets/miccai2025.png" style="width: 20%;margin-top: -40px;">
-        </div>
-        <div class="bottom-right">
-            SEP 27<sup>th</sup>, 2025
-            <br>
-            Intelligent Neuroimaging for Precision Neuroscience3
+        <img src="assets/banner.jpg" alt="Team Banner" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7;">
+        <div class="banner-text-overlay">
+            <h1>INPN Group</h1>
+            <p>Intelligent Neuroimaging for Precision Neuroscience</p>
         </div>
     </div>
 
     <table class="navigation">
         <tr>
-            <td class="navigation">
-                <a class="current" title="INPN" href="index.html">Home</a>
-            </td>
-            <td class="navigation">
-                <a title="MRI" href="page_mri/index.html">MRI </a> 
-            </td>
-            <td class="navigation">
-                <a title="Tissue" href="page_tissue/index.html">Tissue </a>
-            </td>
-            <td class="navigation">
-                <a title="Gene" href="page_gene/index.html">Gene </a>
-            </td>
-            <td class="navigation">
-                <a title="Demo" href="page_demo/index.html">Others </a>
-            </td>
+            <td class="navigation"><a class="current" href="index.html">Home</a></td>
+            <td class="navigation"><a href="page_mri/index.html">MRI</a></td>
+            <td class="navigation"><a href="page_tissue/index.html">Tissue</a></td>
+            <td class="navigation"><a href="page_gene/index.html">Gene</a></td>
+            <td class="navigation"><a href="page_demo/index.html">Others</a></td>
         </tr>
     </table>
 
-    <h2>Introduction</h2>
-    <p>
-        Team Introduction 
-    </p>
+    <section>
+        <h2>About the Team</h2>
+        <p>
+            The Intelligent Neuroimaging for Precision Neuroscience (INPN) group, led by Prof. Chao Li at the University of Cambridge, 
+            focuses on developing cutting-edge computational methods to decode the complexity of brain diseases. 
+            Our research integrates multi-modal MRI, tissue pathology, and spatial transcriptomics to drive the future of precision medicine.
+        </p>
+    </section>
 
-    <h2>Team Leader</h2> 
-    <table class="speaker">
-        <tr>
-            <td class="abstract">
-<!--                 <a href="http://www.warwick.ac.uk/nmrajpoot"> -->
-                    <img src="assets/Chao Li.jpg">
-                </a>
-                <br>Prof. Chao Li
-                <br>Cambridge University, UK
-                <h4>
-                    xxxxxx
-                </h4>
+    <section>
+        <h2>Principal Investigator</h2>
+        <div class="leader-section">
+            <img src="assets/Chao Li.jpg" alt="Prof. Chao Li" class="leader-img">
+            <div class="leader-bio">
+                <h3>Prof. Chao Li</h3>
+                <p><strong>Senior Research Fellow / Professor</strong><br>
+                Department of Clinical Neurosciences, University of Cambridge, UK</p>
                 <p>
-
+                    Prof. Li’s research focuses on the intersection of AI and Clinical Neuroscience. 
+                    He has published extensively in top-tier journals including <em>Nature Communications</em>, 
+                    <em>NeuroImage</em>, and <em>MICCAI</em>.
                 </p>
-            </td>
-        </tr>
-    </table>
+                <p>
+                    <a href="mailto:clxxx@cam.ac.uk">Email</a> | <a href="#">Google Scholar</a> | <a href="#">Twitter/X</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="home-grid">
+        <div class="section-box">
+            <h2>Latest News</h2>
+            <div class="news-item">
+                <span class="news-date">Dec 2025</span> Our paper on 3D Brain Tumor Infiltration was accepted by MICCAI.
+            </div>
+            <div class="news-item">
+                <span class="news-date">Oct 2025</span> Prof. Chao Li gave a keynote speech at the Precision Medicine Summit.
+            </div>
+            <div class="news-item">
+                <span class="news-date">Sep 2025</span> Welcoming our new PhD students joining the INPN group!
+            </div>
+            <p><a href="#">View All News &rarr;</a></p>
+        </div>
+
+        <div>
+            <div class="section-box" style="margin-bottom: 20px;">
+                <h2>Research Areas</h2>
+                <ul>
+                    <li>AI-driven Neuroimaging</li>
+                    <li>Spatial Transcriptomics</li>
+                    <li>Radiomics & Pathomics</li>
+                    <li>Clinical Decision Support</li>
+                </ul>
+            </div>
+
+            <div class="section-box" style="background-color: #fff9db; border-color: #fab005;">
+                <h2 style="color: #e67e22; border-bottom-color: #e67e22;">Join Us</h2>
+                <p>We are always looking for talented PhD students and Postdocs with backgrounds in CS, Medical Imaging, or Neuroscience.</p>
+                <p><strong><a href="mailto:clxxx@cam.ac.uk" style="color: #e67e22;">Apply Now &rarr;</a></strong></p>
+            </div>
+        </div>
+    </div>
+
+    <footer style="margin-top: 50px; padding: 20px; text-align: center; border-top: 1px solid #eee; color: #888;">
+        &copy; 2025 Intelligent Neuroimaging for Precision Neuroscience | University of Cambridge
+    </footer>
 
 </body>
 </html>
-
