@@ -3,13 +3,66 @@
 
 <head>
     <base href="..">
-    <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
-    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
+    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css" />
     <meta name="description" content="MICCAI 2025 Computational Mathematics Modeling in Cancer Analysis Workshop">
     <meta name="resource-type" content="document">
     <meta name="distribution" content="global">
     <meta name="KeyWords" content="Conference">
     <title>2025 CMMCA Workshop</title>
+
+    <style>
+        /* 新增排版样式：处理图片与文字并排 */
+        .paper-list {
+            list-style: none; /* 移除默认圆点 */
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .paper-item {
+            display: flex; /* 开启弹性布局 */
+            align-items: flex-start; /* 顶部对齐 */
+            margin-bottom: 30px; /* 每篇论文之间的间距 */
+            gap: 20px; /* 图片与文字的间距 */
+        }
+
+        .paper-preview-img {
+            width: 160px; /* 预览图宽度 */
+            height: 110px; /* 预览图高度 */
+            object-fit: cover; /* 保证图片在固定尺寸下不缩放变形 */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            flex-shrink: 0; /* 防止图片被挤压 */
+        }
+
+        .paper-content {
+            flex: 1; /* 占据剩余空间 */
+        }
+
+        .paper-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .paper-author {
+            font-style: italic;
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .paper-links a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .paper-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,7 +70,8 @@
     <div class="banner">
         <img src="assets/banner.jpg" alt="Conference Template Banner" style="width: 100%;margin-top: 0px;">
         <div class="top-left">
-            <span class="title1">CMMCA</span><span class="title2">Workshop</span> <img src="assets/miccai2025.png" style="width: 20%;margin-top: -40px;">
+            <span class="title1">CMMCA</span><span class="title2">Workshop</span> <img src="assets/miccai2025.png"
+                style="width: 20%;margin-top: -40px;">
         </div>
         <div class="bottom-right">
             SEP 27<sup>th</sup>, 2025
@@ -32,7 +86,7 @@
                 <a class="current" title="Workshop Home Page" href="index.html">Home</a>
             </td>
             <td class="navigation">
-                <a title="MRI" href="page_mri/index.html">MRI </a> 
+                <a title="MRI" href="page_mri/index.html">MRI </a>
             </td>
             <td class="navigation">
                 <a title="Tissue" href="page_tissue/index.html">Tissue </a>
@@ -41,163 +95,86 @@
                 <a title="Gene" href="page_gene/index.html">Gene </a>
             </td>
             <td class="navigation">
-                <a title="Demo" href="recordings/index.html">Other </a>
+                <a title="Demo" href="page_demo/index.html">Other </a>
             </td>
         </tr>
     </table>
 
+    <h2>Our Work</h2>
 
-    <h2>Workshop Recordings and Posters</h2>
-    <!-- <p>
-        Here&rsquo;s where you can put directions to the conference,
-        and other information that will help attendees find the location,
-        and find the building, and register, and find local places they can stay, etc.
-        You can embed a <a href="https://www.google.com/maps">Google Maps</a> iframe
-        with directions to the conference like a did below.
-        It can also be helpful to include maps of the campus itself,
-        or pictures of the building the conference will be held in.
-        I&rsquo;ve opted to use a placeholder image of a kitten below.
-    </p> -->
+    <section id="Published">
+        <h2>Published</h2>
+        <ul class="paper-list">
+            <li class="paper-item">
+                <img src="LHY1007/INPN/assets/avatar.jpg" alt="Preview" class="paper-preview-img">
+                <div class="paper-content">
+                    <span class="paper-title">A Lightweight Optimization Framework for Estimating 3D Brain Tumor Infiltration</span>
+                    <span class="paper-author">Jonas Weidner</span>
+                    <div class="paper-links">
+                        <a href="assets/poster/oral/01/01_poster.pdf" target="_blank">Paper</a> |
+                        <a href="https://github.com/your-username/project-repo-1" target="_blank">Code</a>
+                    </div>
+                </div>
+            </li>
 
-    <!-- <iframe class="directions" src="TBD"></iframe> -->
-
-    <!-- <img class="center" src="assets/agenda.png" width="120%"> -->
-   
-    <section id="oral">
-      <h2>Oral</h2>
-      <ul>
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">01 - A Lightweight Optimization Framework for Estimating 3D Brain Tumor Infiltration</span><br>
-          <span style="font-style:italic;">Jonas Weidner</span><br>
-          <a href="assets/poster/oral/01/01_poster.pdf" target="_blank">Poster</a> | 
-          <a href="assets/poster/oral/01/01_pre.pptx" download>PPT</a>
-        </li>
-    
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">02 - A data-driven approach to optimise parameters of a computational digital twin model in response to SBRT on MR-Linac</span><br>
-          <span style="font-style:italic;">Valentin Septiers</span><br>
-          <a href="assets/poster/oral/02/02_poster.pdf" target="_blank">Poster</a> | 
-          <a href="assets/poster/oral/02/02_pre.pptx" download>PPT</a>
-        </li>
-    
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">05 - Score-based Diffusion Model for Unpaired Virtual Histology Staining</span><br>
-          <span style="font-style:italic;">Anran Liu</span><br>
-          <a href="assets/poster/oral/05/05_poster.pptx" download>Poster</a> | 
-          <a href="assets/poster/oral/05/05_pre.pptx" download>PPT</a>
-        </li>
-    
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">07 - CT Image Segmentation Using Frequency Domain Feature-Assisted Selective Long Memory State Space Model</span><br>
-          <span style="font-style:italic;">Tianye Niu, Author H</span><br>
-          <a href="assets/poster/oral/07/07_poster.pdf" target="_blank">Poster</a>
-        </li>
-    
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">12 - OG-SAM: Enhancing Multi-Organ Segmentation with Organogenesis-Based Adaptive Modeling</span><br>
-          <span style="font-style:italic;">Xidong Wu</span><br>
-          <a href="assets/poster/oral/12/12_poster.pdf" target="_blank">Poster</a> | 
-          <a href="assets/poster/oral/12/12_pre.pptx" download>PPT</a>
-        </li>
-    
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">17 - Region-aware Diagnosis of Clinically Significant Prostate Cancer via Semi-supervised Learning Segmentation</span><br>
-          <span style="font-style:italic;">Guantian Huang</span><br>
-          <a href="assets/poster/oral/17/17-poster.pdf" target="_blank">Poster</a> | 
-          <a href="assets/poster/oral/17/17-pre.pptx" download>PPT</a>
-        </li>
-      </ul>
-    </section>
-    
-    <section id="poster">
-      <h2>Poster</h2>
-      <ul>
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">03 - FMIC-AI: Annotation-Free Tumor Cell Detection in Fluorescence Microscopy via Self-Supervised Anomaly</span><br>
-          <span style="font-style:italic;">Yinglan Kuang</span><br>
-          <a href="assets/poster/poster/03/03_poster.pdf" target="_blank">Poster</a> | 
-          <a href="assets/poster/poster/03/03_video.mp4" target="_blank">Video</a>
-        </li>
-    
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">06 - Redefining spectral unmixing for in-vivo brain tissue analysis from hyperspectral imaging</span><br>
-          <span style="font-style:italic;">Martin Hartenberger</span><br>
-          <a href="assets/poster/poster/06/06_poster.pdf" target="_blank">Poster</a> | 
-          <a href="assets/poster/poster/06/06_poster.mp4" target="_blank">Video</a>
-        </li>
-    
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">08 - Towards Robust Skin Lesion Classification: Lesion Segmentation, Mole Collision Simulation and Hierarchical learning</span><br>
-          <span style="font-style:italic;">Hang Nguyen</span><br>
-          <a href="assets/poster/poster/08/08_poster.pdf" target="_blank">Poster</a> | 
-          <a href="assets/poster/poster/08/08_pre.mp4" target="_blank">Video</a>
-        </li>
-    
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">09 - Key Clinical Parameters Detection and Ovarian Tumor Benign/Malignant Classification in Multi-Modal Ultrasound Images via a Multi-Task Model</span><br>
-          <span style="font-style:italic;">Chunjun Qian</span><br>
-          <a href="assets/poster/poster/09/09_poster.pdf" target="_blank">Poster</a> | 
-          <a href="assets/poster/poster/09/09_video.mp4" target="_blank">Video</a>
-        </li>
-    
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">15 - CoMoSeg: Anatomical Consistency and Cross Modality Guidance for Robust Brain Tumor Segmentation Using Partially Labeled MR Sequences</span><br>
-          <span style="font-style:italic;">Zehao Weng</span><br>
-          <a href="assets/poster/poster/15/15_poster.pdf" target="_blank">Poster</a> | 
-          <a href="assets/poster/poster/15/15_video.mp4" target="_blank">Video</a>
-        </li>
-    
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">19 - GraphMMP: A Graph Neural Network Model with Mutual Information and Global Fusion for Multimodal Medical Prognosis</span><br>
-          <span style="font-style:italic;">Xuhao Shan</span><br>
-          <a href="assets/poster/poster/19/19_poster.pdf" target="_blank">Poster</a> | 
-          <a href="assets/poster/poster/19/19_video.mp4" target="_blank">Video</a>
-        </li>
-    
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">21 - Dual-Guided 3D Liver CT Image Generation for Medical Analysis</span><br>
-          <span style="font-style:italic;">Zhizhen Song</span><br>
-          <a href="assets/poster/poster/21/21_poster.pdf" target="_blank">Poster</a> | 
-          <a href="assets/poster/poster/21/21_video.mp4" target="_blank">Video</a>
-        </li>
-    
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">22 - HaDM-ST: Histology-Assisted Differential Modeling for Spatial Transcriptomics Generation</span><br>
-          <span style="font-style:italic;">Xuepeng Liu</span><br>
-          <a href="assets/poster/poster/22/22_poster.pdf" target="_blank">Poster</a> | 
-          <a href="assets/poster/poster/22/22_video.mp4" target="_blank">Video</a>
-        </li>
-    
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">23 - Projection-Driven Robust Motion Compensation for CBCT using a Patient-Specific Model Learned from Prior Scans</span><br>
-          <span style="font-style:italic;">Yilin Shao</span><br>
-          <a href="assets/poster/poster/23/24_poster.pptx" download>Poster</a> | 
-          <a href="assets/poster/poster/23/23_video.mp4" target="_blank">Video</a>
-        </li>
-    
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">25 - Revealing New Possibilities for Breast MRI Enhancement: Mamba- Driven Cross-Attention GAN with VMKANet</span><br>
-          <span style="font-style:italic;">Yao PU</span><br>
-          <a href="assets/poster/poster/25/25_poster.pdf" target="_blank">Poster</a> | 
-          <a href="assets/poster/poster/25/25_video.mp4" target="_blank">Video</a>
-        </li>
-    
-        <li>
-          <span style="font-size:1.2em; font-weight:bold;">29 - Hierarchical Brain Structure Modeling for Predicting Genotype of Glioma</span><br>
-          <span style="font-style:italic;">Haotian Tang</span><br>
-          <a href="assets/poster/poster/29/29_poster.pdf" target="_blank">Poster</a> | 
-          <a href="assets/poster/poster/29/29_video.mp4" target="_blank">Video</a>
-        </li>
-      </ul>
+            <li class="paper-item">
+                <img src="LHY1007/INPN/assets/avatar.jpg" alt="Preview" class="paper-preview-img">
+                <div class="paper-content">
+                    <span class="paper-title">A data-driven approach to optimise parameters of a computational digital twin model in response to SBRT on MR-Linac</span>
+                    <span class="paper-author">Valentin Septiers</span>
+                    <div class="paper-links">
+                        <a href="assets/poster/oral/02/02_poster.pdf" target="_blank">Paper</a> |
+                        <a href="https://github.com/your-username/project-repo-2" target="_blank">Code</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </section>
 
+    <section id="UR">
+        <h2>Under review</h2>
+        <ul class="paper-list">
+            <li class="paper-item">
+                <img src="LHY1007/INPN/assets/avatar.jpg" alt="Preview" class="paper-preview-img">
+                <div class="paper-content">
+                    <span class="paper-title">FMIC-AI: Annotation-Free Tumor Cell Detection in Fluorescence Microscopy via Self-Supervised Anomaly</span>
+                    <span class="paper-author">Yinglan Kuang</span>
+                    <div class="paper-links">
+                        <a href="assets/poster/poster/03/03_poster.pdf" target="_blank">Paper</a> |
+                        <a href="https://github.com/your-username/project-repo-3" target="_blank">Code</a>
+                    </div>
+                </div>
+            </li>
 
-    
-    
+            <li class="paper-item">
+                <img src="LHY1007/INPN/assets/avatar.jpg" alt="Preview" class="paper-preview-img">
+                <div class="paper-content">
+                    <span class="paper-title">Redefining spectral unmixing for in-vivo brain tissue analysis from hyperspectral imaging</span>
+                    <span class="paper-author">Martin Hartenberger</span>
+                    <div class="paper-links">
+                        <a href="assets/poster/poster/06/06_poster.pdf" target="_blank">Paper</a> |
+                        <a href="https://github.com/your-username/project-repo-4" target="_blank">Code</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="paper-item">
+                <img src="LHY1007/INPN/assets/avatar.jpg" alt="Preview" class="paper-preview-img">
+                <div class="paper-content">
+                    <span class="paper-title">Towards Robust Skin Lesion Classification: Lesion Segmentation, Mole Collision Simulation and Hierarchical learning</span>
+                    <span class="paper-author">Hang Nguyen</span>
+                    <div class="paper-links">
+                        <a href="assets/poster/poster/08/08_poster.pdf" target="_blank">Paper</a> |
+                        <a href="https://github.com/your-username/project-repo-5" target="_blank">Code</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
     <footer>
         &copy; Conference Organizers
-        <!-- &nbsp;|&nbsp; Design by <a href="https://github.com/mikepierce">Mike Pierce</a> -->
     </footer>
-    
+
 </body>
 </html>
