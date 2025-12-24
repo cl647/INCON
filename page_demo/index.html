@@ -2,75 +2,101 @@
 <html lang='en'>
 
 <head>
-    <base href="..">
+    <base href=".">
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
-    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css" />
-    <meta name="description" content="MICCAI 2025 Computational Mathematics Modeling in Cancer Analysis Workshop">
-    <meta name="resource-type" content="document">
-    <meta name="distribution" content="global">
-    <meta name="KeyWords" content="Conference">
-    <title>2025 CMMCA Workshop</title>
+    <link rel="stylesheet" type="text/css" href="assets/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work - INPN Group / CMMCA 2025</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto%7CRoboto+Slab" rel="stylesheet">
 
     <style>
+        /* 针对论文列表的特定样式优化，确保与新版 main.css 兼容 */
         .paper-list {
             list-style: none;
             padding: 0;
-            margin: 20px 0;
+            margin: 0;
         }
 
         .paper-item {
             display: flex;
-            align-items: flex-start; /* 顶部对齐：文字多时，图片依然在最上方 */
-            margin-bottom: 40px; 
+            align-items: flex-start;
+            margin-bottom: 35px; /* 论文条目间的间距 */
             gap: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .paper-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
         }
 
         .paper-preview-img {
-            /* 图片尺寸被锁定，不会随文字增多而改变 */
-            width: 160px; 
-            height: 110px; 
+            width: 180px; /* 略微放大预览图以匹配新版大气风格 */
+            height: 120px; 
             object-fit: cover; 
             border: 1px solid #ddd;
             border-radius: 4px;
-            flex-shrink: 0; /* 核心属性：防止图片在空间不足时被挤压 */
+            flex-shrink: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
         .paper-content {
-            flex: 1; 
+            flex: 1;
+            min-width: 0; /* 核心修复：防止 Flex 子元素在窄屏溢出 */
         }
 
         .paper-title {
-            font-size: 1.2em;
+            font-size: 1.25rem;
             font-weight: bold;
+            color: var(--primary-blue, #003B5C);
+            margin-bottom: 8px;
             display: block;
-            margin-bottom: 5px;
-            color: #333;
+            line-height: 1.4;
         }
 
         .paper-author {
             font-style: italic;
             display: block;
-            margin-bottom: 8px;
-            color: #666;
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 0.95rem;
         }
 
-        /* 新增：描述文字的样式 */
         .paper-desc {
-            font-size: 0.95em;
+            font-size: 0.95rem;
             color: #444;
-            line-height: 1.5;
-            margin-bottom: 12px;
-            display: block; /* 确保占据一行 */
+            line-height: 1.6;
+            margin-bottom: 15px;
+            text-align: justify;
+            display: block;
         }
 
         .paper-links a {
-            color: #007bff;
+            color: var(--accent-blue, #52739e);
             text-decoration: none;
             font-weight: bold;
+            font-size: 0.9rem;
         }
 
         .paper-links a:hover {
             text-decoration: underline;
+            color: #b2132e;
+        }
+
+        /* 手机端适配：预览图置顶，文字在下 */
+        @media (max-width: 768px) {
+            .paper-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .paper-preview-img {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+            }
         }
     </style>
 </head>
@@ -78,99 +104,83 @@
 <body>
 
     <div class="banner">
-        <img src="assets/banner.jpg" alt="Conference Template Banner" style="width: 100%;margin-top: 0px;">
-        <div class="top-left">
-            <span class="title1">CMMCA</span><span class="title2">Workshop</span> <img src="assets/miccai2025.png"
-                style="width: 20%;margin-top: -40px;">
-        </div>
-        <div class="bottom-right">
-            SEP 27<sup>th</sup>, 2025
-            <br>
-            Computational Mathematics Modeling in Cancer Analysis
+        <div class="page-container">
+            <h1>Our Research</h1>
+            <p>Computational Mathematics Modeling in Cancer Analysis</p>
         </div>
     </div>
 
-    <table class="navigation">
-        <tr>
-            <td class="navigation"><a class="current" title="Workshop Home Page" href="index.html">Home</a></td>
-            <td class="navigation"><a title="MRI" href="page_mri/index.html">MRI </a></td>
-            <td class="navigation"><a title="Tissue" href="page_tissue/index.html">Tissue </a></td>
-            <td class="navigation"><a title="Gene" href="page_gene/index.html">Gene </a></td>
-            <td class="navigation"><a title="Demo" href="page_demo/index.html">Other </a></td>
-        </tr>
-    </table>
+    <div class="navigation-wrap">
+        <div class="page-container">
+            <table class="navigation">
+                <tr>
+                    <td><a href="index.html">Home</a></td>
+                    <td><a title="MRI" href="page_mri/index.html">MRI </a></td>
+                    <td><a title="Tissue" href="page_tissue/index.html">Tissue </a></td>
+                    <td><a title="Gene" href="page_gene/index.html">Gene </a></td>
+                    <td><a title="Demo" href="page_demo/index.html">Other </a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-    <h2>Our Work</h2>
-
-    <section id="Published">
-        <h2>Published</h2>
-        <ul class="paper-list">
-            <li class="paper-item">
-                <img src="assets/avatar.jpg" alt="Preview" class="paper-preview-img">
-                <div class="paper-content">
-                    <span class="paper-title">A Lightweight Optimization Framework for Estimating 3D Brain Tumor Infiltration</span>
-                    <span class="paper-author">Jonas Weidner</span>
-                    <span class="paper-desc">This work introduces a novel lightweight optimization framework specifically designed for high-resolution 3D brain tumor imaging. It significantly reduces computational overhead while maintaining high accuracy in infiltration estimation.</span>
-                    <div class="paper-links">
-                        <a href="assets/poster/oral/01/01_poster.pdf" target="_blank">Paper</a> |
-                        <a href="https://github.com/CMMCA-Workshop/example1" target="_blank">Code</a>
-                    </div>
-                </div>
-            </li>
-        </ul>
-
-        <ul class="paper-list">
-            <li class="paper-item">
-                <img src="assets/avatar.jpg" alt="Preview" class="paper-preview-img">
-                <div class="paper-content">
-                    <span class="paper-title">A Lightweight Optimization Framework for Estimating 3D Brain Tumor Infiltration</span>
-                    <span class="paper-author">Jonas Weidner</span>
-                    <span class="paper-desc">This work introduces a novel lightweight optimization framework specifically designed for high-resolution 3D brain tumor imaging. It significantly reduces computational overhead while maintaining high accuracy in infiltration estimation.</span>
-                    <div class="paper-links">
-                        <a href="assets/poster/oral/01/01_poster.pdf" target="_blank">Paper</a> |
-                        <a href="https://github.com/CMMCA-Workshop/example1" target="_blank">Code</a>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </section>
-
-    <section id="UR">
-        <h2>Under review</h2>
-        <ul class="paper-list">
-            <li class="paper-item">
-                <img src="assets/avatar.jpg" alt="Preview" class="paper-preview-img">
-                <div class="paper-content">
-                    <span class="paper-title">FMIC-AI: Annotation-Free Tumor Cell Detection in Fluorescence Microscopy via Self-Supervised Anomaly</span>
-                    <span class="paper-author">Yinglan Kuang</span>
-                    <span class="paper-desc">A self-supervised learning approach for detecting tumor cells without the need for manual annotations, leveraging anomaly detection techniques in fluorescence microscopy.</span>
-                    <div class="paper-links">
-                        <a href="assets/poster/poster/03/03_poster.pdf" target="_blank">Paper</a> |
-                        <a href="https://github.com/CMMCA-Workshop/example2" target="_blank">Code</a>
-                    </div>
-                </div>
-            </li>
-        </ul>
-
-        <ul class="paper-list">
-            <li class="paper-item">
-                <img src="assets/avatar.jpg" alt="Preview" class="paper-preview-img">
-                <div class="paper-content">
-                    <span class="paper-title">FMIC-AI: Annotation-Free Tumor Cell Detection in Fluorescence Microscopy via Self-Supervised Anomaly</span>
-                    <span class="paper-author">Yinglan Kuang</span>
-                    <span class="paper-desc">A self-supervised learning approach for detecting tumor cells without the need for manual annotations, leveraging anomaly detection techniques in fluorescence microscopy.</span>
-                    <div class="paper-links">
-                        <a href="assets/poster/poster/03/03_poster.pdf" target="_blank">Paper</a> |
-                        <a href="https://github.com/CMMCA-Workshop/example2" target="_blank">Code</a>
-                    </div>
-                </div>
-            </li>
-        </ul>
+    <div class="page-container">
         
-    </section>
+        <section id="Published">
+            <h2>Published Works</h2>
+            <ul class="paper-list">
+                <li class="paper-item">
+                    <img src="assets/avatar.jpg" alt="Preview" class="paper-preview-img">
+                    <div class="paper-content">
+                        <span class="paper-title">A Lightweight Optimization Framework for Estimating 3D Brain Tumor Infiltration</span>
+                        <span class="paper-author">Jonas Weidner</span>
+                        <p class="paper-desc">This work introduces a novel lightweight optimization framework specifically designed for high-resolution 3D brain tumor imaging. It significantly reduces computational overhead while maintaining high accuracy.</p>
+                        <div class="paper-links">
+                            <a href="assets/poster/oral/01/01_poster.pdf" target="_blank">Paper</a> |
+                            <a href="https://github.com/CMMCA-Workshop/example1" target="_blank">Code</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="paper-item">
+                    <img src="assets/avatar.jpg" alt="Preview" class="paper-preview-img">
+                    <div class="paper-content">
+                        <span class="paper-title">Advanced Digital Twin Model for SBRT Response Analysis</span>
+                        <span class="paper-author">Valentin Septiers</span>
+                        <p class="paper-desc">A data-driven approach to optimise parameters of a computational digital twin model in response to SBRT on MR-Linac systems.</p>
+                        <div class="paper-links">
+                            <a href="assets/poster/oral/02/02_poster.pdf" target="_blank">Paper</a> |
+                            <a href="https://github.com/CMMCA-Workshop/example1" target="_blank">Code</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="UR">
+            <h2>Under Review</h2>
+            <ul class="paper-list">
+                <li class="paper-item">
+                    <img src="assets/avatar.jpg" alt="Preview" class="paper-preview-img">
+                    <div class="paper-content">
+                        <span class="paper-title">FMIC-AI: Annotation-Free Tumor Cell Detection in Fluorescence Microscopy</span>
+                        <span class="paper-author">Yinglan Kuang</span>
+                        <p class="paper-desc">A self-supervised learning approach for detecting tumor cells leveraging anomaly detection techniques in fluorescence microscopy.</p>
+                        <div class="paper-links">
+                            <a href="assets/poster/poster/03/03_poster.pdf" target="_blank">Paper</a> |
+                            <a href="https://github.com/CMMCA-Workshop/example2" target="_blank">Code</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        
+    </div>
 
     <footer>
-        &copy; 2025 CMMCA Workshop Organizers
+        <div class="page-container">
+            &copy; 2025 Intelligent Neuroimaging for Precision Neuroscience | University of Cambridge
+        </div>
     </footer>
 
 </body>
