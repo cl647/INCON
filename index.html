@@ -9,37 +9,38 @@
     <title>INPN Group - Home</title>
 
     <style>
-        /* --- 1. 全局样式：强制盒模型计算与基础重置 --- */
+        /* --- 1. 全局样式：强制盒模型并重置 --- */
         * {
-            box-sizing: border-box; /* 防止 padding 撑破容器 */
+            box-sizing: border-box; /* 确保 padding 不会撑大容器宽度 */
         }
 
         :root {
             --primary-blue: #003B5C;
             --accent-blue: #0072b2;
-            --max-page-width: 960px; /* 严格限制文字长度，防止宽屏阅读疲劳 */
+            --max-page-width: 1000px; /* 统一样式宽度 */
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0; padding: 0;
-            background-color: #f7f9fb;
+            background-color: #f8fafc;
             color: #333;
-            overflow-x: hidden; /* 严禁出现横向滚动条 */
+            overflow-x: hidden;
         }
 
-        /* --- 2. 居中容器：解决“无法居中”的核心 --- */
+        /* --- 2. 居中容器：解决“无法居中”与“等宽” --- */
         .page-container {
-            width: 95%; /* 手机端保留小边距 */
+            width: 95%; /* 适配小屏幕 */
             max-width: var(--max-page-width);
-            margin: 0 auto; /* 绝对居中 */
-            position: relative;
+            margin: 0 auto !important; /* 强制水平居中 */
+            padding: 0;
+            display: block;
         }
 
-        /* --- 3. Banner 优化 --- */
+        /* --- 3. Banner 修复 --- */
         .banner {
             background-color: var(--primary-blue);
-            background-image: linear-gradient(rgba(0, 59, 92, 0.75), rgba(0, 59, 92, 0.75)), url('assets/banner.jpg');
+            background-image: linear-gradient(rgba(0, 59, 92, 0.7), rgba(0, 59, 92, 0.7)), url('assets/banner.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -48,12 +49,7 @@
             width: 100%;
         }
 
-        .banner h1 {
-            font-size: clamp(1.8rem, 5vw, 3rem); /* 字号随屏幕自适应 */
-            margin: 0 0 10px 0;
-        }
-
-        /* --- 4. 导航栏居中与自适应 --- */
+        /* --- 4. 导航栏 --- */
         .navigation-wrap {
             background: white;
             border-bottom: 1px solid #ddd;
@@ -68,16 +64,15 @@
         }
 
         .navigation td {
-            padding: 15px 5px;
+            padding: 15px 0;
             text-align: center;
         }
 
         .navigation a {
             text-decoration: none;
-            color: #666;
+            color: #555;
             font-weight: 500;
-            padding: 8px 12px;
-            transition: 0.3s;
+            padding: 10px 15px;
         }
 
         .navigation a.current {
@@ -85,16 +80,16 @@
             border-bottom: 3px solid var(--primary-blue);
         }
 
-        /* --- 5. 内容板块：等宽排列且限制长度 --- */
+        /* --- 5. 内容板块：解决溢出与不等宽问题 --- */
         section {
             background: white;
-            margin: 30px auto; /* 板块间距并居中 */
+            margin: 30px 0;
             padding: 40px;
-            border-radius: 4px;
+            border-radius: 8px;
             border: 1px solid #eee;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             width: 100%; /* 继承容器宽度 */
-            word-wrap: break-word; /* 强制换行防止溢出 */
+            overflow: hidden; /* 核心：防止内部元素溢出 */
         }
 
         h2 {
@@ -102,60 +97,63 @@
             padding-bottom: 15px;
             margin-top: 0;
             color: var(--primary-blue);
-            font-size: 1.6rem;
+            font-size: 1.8rem;
         }
 
-        /* PI 介绍区优化 */
+        /* --- 6. PI 介绍区核心修复（针对图片撑开文字溢出） --- */
         .pi-box {
             display: flex;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap; /* 手机端自动换行 */
+            align-items: flex-start; /* 改为顶部对齐更专业 */
+            gap: 40px;
+            width: 100%; /* 强制占满 section 内部空间 */
         }
 
         .pi-img {
-            width: 160px;
-            height: 160px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #f0f0f0;
-            flex-shrink: 0; /* 禁止图片被挤压 */
+            flex-shrink: 0; /* 核心：严禁图片被压缩 */
+            border: 5px solid #f0f0f0;
         }
 
         .pi-text {
-            flex: 1;
-            min-width: 280px; /* 保证文字至少有一定宽度，不足时自动换行 */
+            flex: 1; /* 核心：占据剩余所有空间 */
+            min-width: 0; /* 极其关键：允许 flex 子元素收缩至小于其内容宽度，防止溢出 */
+            word-wrap: break-word; /* 文字自动换行 */
         }
 
-        /* 新闻与列表样式 */
-        .item-list {
+        /* 新闻列表样式 */
+        .news-list {
             list-style: none;
-            padding: 0;
-            margin: 0;
+            padding: 0; margin: 0;
         }
 
-        .item-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
+        .news-item {
             display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f1f1;
             gap: 15px;
         }
 
-        .item-list li:last-child { border-bottom: none; }
+        .news-item:last-child { border-bottom: none; }
 
-        .date-tag {
+        .date-label {
             color: var(--accent-blue);
             font-weight: bold;
-            white-space: nowrap; /* 日期不换行 */
+            min-width: 90px;
+            flex-shrink: 0;
         }
 
-        /* --- 6. 响应式微调 --- */
-        @media (max-width: 600px) {
-            .banner { padding: 50px 0; }
-            .pi-box { justify-content: center; text-align: center; }
-            section { padding: 20px; }
-            .navigation td { padding: 10px 2px; }
-            .navigation a { font-size: 0.85rem; padding: 5px; }
+        /* --- 7. 手机端自适应 --- */
+        @media (max-width: 768px) {
+            .pi-box {
+                flex-direction: column; /* 手机端改为垂直排列 */
+                align-items: center;
+                text-align: center;
+            }
+            section { padding: 25px; }
+            .navigation a { padding: 5px 8px; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -187,8 +185,8 @@
         
         <section>
             <h2>About the Team</h2>
-            <p style="text-align: justify; margin: 0;">
-                The Intelligent Neuroimaging for Precision Neuroscience (INPN) group, led by Prof. Chao Li at the University of Cambridge, focuses on developing computational methods to decode the complexity of brain diseases. Our research integrates multi-modal MRI, tissue pathology, and spatial transcriptomics to advance personalized treatment strategies.
+            <p style="text-align: justify; line-height: 1.7;">
+                The Intelligent Neuroimaging for Precision Neuroscience (INPN) group, led by Prof. Chao Li at the University of Cambridge, focuses on developing computational methods to decode the complexity of brain diseases. Our research integrates multi-modal MRI, tissue pathology, and spatial transcriptomics.
             </p>
         </section>
 
@@ -197,35 +195,51 @@
             <div class="pi-box">
                 <img src="assets/Chao Li.jpg" alt="Prof. Chao Li" class="pi-img">
                 <div class="pi-text">
-                    <h3 style="margin:0; font-size: 1.6rem; color: var(--primary-blue);">Prof. Chao Li</h3>
+                    <h3 style="margin:0; font-size: 1.8rem; color: var(--primary-blue);">Prof. Chao Li</h3>
                     <p style="color:#666; font-weight: bold; margin: 5px 0;">University of Cambridge, UK</p>
-                    <p style="margin: 10px 0;">Prof. Li's research focuses on the intersection of AI and Clinical Neuroscience. He has published extensively in top-tier journals including <em>Nature Communications</em>, <em>NeuroImage</em>, and <em>MICCAI</em>.</p>
+                    <p style="margin: 15px 0; line-height: 1.6;">
+                        Prof. Li's research focuses on the intersection of AI and Clinical Neuroscience. He has published extensively in top-tier journals including <em>Nature Communications</em>, <em>NeuroImage</em>, and <em>MICCAI</em>.
+                    </p>
+                    <div style="margin-top: 15px;">
+                        <a href="mailto:clxxx@cam.ac.uk" style="color:var(--accent-blue); margin-right:20px; text-decoration:none;">Email</a>
+                        <a href="#" style="color:var(--accent-blue); margin-right:20px; text-decoration:none;">Google Scholar</a>
+                        <a href="#" style="color:var(--accent-blue); text-decoration:none;">Twitter/X</a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section>
             <h2>Latest News</h2>
-            <ul class="item-list">
-                <li><span class="date-tag">Dec 2025</span> <span>Our paper on 3D Brain Tumor Infiltration was accepted by MICCAI.</span></li>
-                <li><span class="date-tag">Oct 2025</span> <span>Prof. Chao Li gave a keynote speech at the Precision Medicine Summit.</span></li>
-                <li><span class="date-tag">Sep 2025</span> <span>Welcoming our new PhD students joining the INPN group!</span></li>
-            </ul>
+            <div class="news-list">
+                <div class="news-item">
+                    <span class="date-label">Dec 2025</span>
+                    <span>Our paper on 3D Brain Tumor Infiltration was accepted by MICCAI.</span>
+                </div>
+                <div class="news-item">
+                    <span class="date-label">Oct 2025</span>
+                    <span>Prof. Chao Li gave a keynote speech at the Precision Medicine Summit.</span>
+                </div>
+                <div class="news-item">
+                    <span class="date-label">Sep 2025</span>
+                    <span>Welcoming our new PhD students joining the INPN group!</span>
+                </div>
+            </div>
         </section>
 
         <section>
             <h2>Research Areas</h2>
-            <ul class="item-list" style="display: flex; flex-wrap: wrap; border:none; padding: 0;">
-                <li style="flex: 1 1 45%; border:none; min-width: 200px;">• AI-driven Neuroimaging</li>
-                <li style="flex: 1 1 45%; border:none; min-width: 200px;">• Spatial Transcriptomics</li>
-                <li style="flex: 1 1 45%; border:none; min-width: 200px;">• Radiomics & Pathomics</li>
-                <li style="flex: 1 1 45%; border:none; min-width: 200px;">• Clinical Decision Support</li>
-            </ul>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div style="padding: 10px; border-left: 3px solid var(--accent-blue);">AI-driven Neuroimaging</div>
+                <div style="padding: 10px; border-left: 3px solid var(--accent-blue);">Spatial Transcriptomics</div>
+                <div style="padding: 10px; border-left: 3px solid var(--accent-blue);">Radiomics & Pathomics</div>
+                <div style="padding: 10px; border-left: 3px solid var(--accent-blue);">Clinical Decision Support</div>
+            </div>
         </section>
 
     </div>
 
-    <footer style="text-align: center; padding: 50px 0; color: #aaa; font-size: 0.9rem;">
+    <footer style="text-align: center; padding: 60px 0; color: #999; font-size: 0.9rem; background: #fff; margin-top: 40px; border-top: 1px solid #eee;">
         <div class="page-container">
             &copy; 2025 Intelligent Neuroimaging for Precision Neuroscience | University of Cambridge
         </div>
