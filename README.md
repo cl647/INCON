@@ -27,7 +27,7 @@
 
 ```html
 <li class="paper-item">
-    <img src="doc/[子页面关键词]/p/你的图片名.png" alt="Preview" class="paper-preview-img">
+    <img src="doc/[子页面关键词]/论文状态子文件夹/你的图片名.png" alt="Preview" class="paper-preview-img">
     
     <div class="paper-content">
         <span class="paper-title">这里输入你的论文标题</span>
@@ -37,7 +37,7 @@
         <p class="paper-desc">请简要描述这项工作的核心创新点和贡献（建议 2-3 句话）。</p>
         
         <div class="paper-links">
-            <a href="assets/poster/.../你的论文.pdf" target="_blank">Paper</a> |
+            <a href="doc/[子页面关键词]/论文状态子文件夹/你的论文.pdf" target="_blank">Paper</a> |
             <a href="https://github.com/..." target="_blank">Code</a>
         </div>
     </div>
@@ -77,5 +77,6 @@ INPN/
 
 
 **核心原因**：采用这种结构化的添加方式，可以确保新内容能够自动适配移动端布局，并保持学术站点严谨、统一的视觉风格。
+
 
 
