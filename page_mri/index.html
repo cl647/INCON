@@ -252,22 +252,23 @@
                 </li><!--结束-->
 
                 <li class="paper-item"><!--开始-->
-                    <img src="doc/mri/p/CoLa-Diff overview.png" alt="Preview" class="paper-preview-img">
+                    <img src="doc/mri/p/DisC-Diff.png" alt="Preview" class="paper-preview-img">
                     
-                    <div class="paper-content"><!--CoLa-Diff-->
-                        <span class="paper-title">CoLa-Diff: Conditional Latent Diffusion Model for Multi-Modal MRI Synthesis</span>
+                    <div class="paper-content"><!--DisC-Diff-->
+                        <span class="paper-title">DisC-Diff: Disentangled Conditional Diffusion Model for Multi-Contrast MRI Super-Resolution</span>
                         <span class="paper-journal">arXiv</span>
                         <!--<span class="paper-journal">发表/投稿期刊（预印本写Preprint）</span>-->
-                        <span class="paper-author">Lan Jiang, Ye Mao, Xi Chen, Xiangfeng Wang, and Chao Li</span>
+                        <span class="paper-author">Ye Mao, Lan Jiang, Xi Chen, and Chao Li</span>
                         
                         <p class="paper-desc">
-                            CoLa-Diff is a diffusion-based multi-modal MRI synthesis framework that operates in latent space to reduce memory consumption while enabling effective multi-condition modeling.
-                            By incorporating cooperative latent filtering, anatomical priors via brain region masks, and adaptive weighting of multi-modal inputs, 
-                            CoLa-Diff achieves structure-preserving and high-quality MRI synthesis, outperforming existing state-of-the-art methods.
+                            DisC-Diff takes low-resolution, multi-contrast brain MRI images as input and employs a conditional diffusion model to generate high-resolution reconstructions while estimating restoration uncertainty. 
+                            Within this framework, a multi-stream disentangled network processes different contrasts separately to fully leverage complementary information, 
+                            enhancing both reconstruction accuracy and model interpretability. The output is high-resolution, 
+                            multi-contrast MRI images along with uncertainty estimates, demonstrating superior quantitative and visual performance compared to existing methods.
                         </p>
                         
                         <div class="paper-links">
-                            <a href="doc/mri/p/CoLa-Diff.pdf" target="_blank">Paper</a>
+                            <a href="doc/mri/p/DisC-Diff.pdf" target="_blank">Paper</a>
                             <!--<a href="doc/[子页面关键词]/p/你的论文.pdf" target="_blank">Paper</a> |
                             <a href="https://github.com/..." target="_blank">Code</a>-->
                         </div>
