@@ -274,6 +274,56 @@
                         </div>
                      </div>
                 </li><!--结束-->
+
+                <li class="paper-item"><!--开始-->
+                    <img src="doc/mri/p/D-CoRP.png" alt="Preview" class="paper-preview-img">
+                    
+                    <div class="paper-content"><!--D-CoRP-->
+                        <span class="paper-title">D-CoRP: Differentiable Connectivity Refinement for Functional Brain Networks</span>
+                        <span class="paper-journal">arXiv</span>
+                        <!--<span class="paper-journal">发表/投稿期刊（预印本写Preprint）</span>-->
+                        <span class="paper-author">Haoyu Hu, Hongrun Zhang, and Chao Li</span>
+                        
+                        <p class="paper-desc">
+                            We proposed D-CoRP, a lightweight, plug-in module for refining noisy fMRI-derived functional connectomes so that downstream GNNs learn from more informative graph. 
+                            First we generate selection probabilities for each connection by using an auxiliary attention-based module to score how likely an edge is to be kept. 
+                            Then we propose differentiable sampling to turn those probabilities into a near-binary masking matrix, so the model can actually “select” edges while still allowing gradients to flow. 
+                            Finally, we optimise the mask with an information-bottleneck objective, 
+                            encouraging the refined graph to retain task-relevant connectivity but compress away redundant or noisy links.
+                        </p>
+                        
+                        <div class="paper-links">
+                            <a href="doc/mri/p/D-CoRP.pdf" target="_blank">Paper</a>
+                            <!--<a href="doc/[子页面关键词]/p/你的论文.pdf" target="_blank">Paper</a> |
+                            <a href="https://github.com/..." target="_blank">Code</a>-->
+                        </div>
+                     </div>
+                </li><!--结束-->
+
+                <li class="paper-item"><!--开始-->
+                    <img src="doc/mri/p/Phy-Diff.png" alt="Preview" class="paper-preview-img">
+                    
+                    <div class="paper-content"><!--Phy-Diff-->
+                        <span class="paper-title">Phy-Diff: Physics-guided Hourglass Diffusion Model for Diffusion MRI Synthesis</span>
+                        <span class="paper-journal">arXiv</span>
+                        <!--<span class="paper-journal">发表/投稿期刊（预印本写Preprint）</span>-->
+                        <span class="paper-author">Juanhua Zhang , Ruodan Yan , Alessandro Perelli, Xi Chen , and Chao Li</span>
+                        
+                        <p class="paper-desc">
+                            We proposed Phy-Diff, a physics-guided conditional diffusion model for synthesising DWI from b0 under specified b-value/b-vector conditions, 
+                            aiming to reduce acquisition while keeping tract-level detail. 
+                            We use a physics-guided noise evolution (ADC-informed) to make the forward noising follow diffusion signal attenuation rather than generic Gaussian corruption. 
+                            Then we apply query-based conditional mapping to encode continuous b-value and direction so the reverse process can generate DWI for arbitrary q-space settings. 
+                            Finally, the designed XTRACT condition adaptation injects tract priors via an adaptor branch to preserve white-matter bundle structure and reduce over-smoothing.
+                        </p>
+                        
+                        <div class="paper-links">
+                            <a href="doc/mri/p/Phy-Diff.pdf" target="_blank">Paper</a>
+                            <!--<a href="doc/[子页面关键词]/p/你的论文.pdf" target="_blank">Paper</a> |
+                            <a href="https://github.com/..." target="_blank">Code</a>-->
+                        </div>
+                     </div>
+                </li><!--结束-->
             </ul>
         </section>
 
