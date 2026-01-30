@@ -2,63 +2,106 @@
 <html lang='en'>
 
 <head>
-    <base href=".">
+    <base href="..">
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
     <link rel="stylesheet" type="text/css" href="assets/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News - INCON Group</title>
+    <title>Gene Research - INCON Group</title>
     
     <link href="https://fonts.googleapis.com/css?family=Roboto%7CRoboto+Slab" rel="stylesheet">
 
     <style>
-        .news-list {
+        /* 针对论文列表的特定样式，仅在此页面生效 */
+        .paper-list {
             list-style: none;
             padding: 0;
-            margin: 20px 0;
+            margin: 0;
         }
 
-        .news-item {
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-            line-height: 1.6;
+        .paper-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 35px;
+            gap: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        .news-item:last-child {
+        .paper-item:last-child {
             border-bottom: none;
+            margin-bottom: 0;
         }
 
-        .news-date {
+        .paper-preview-img {
+            width: 180px; 
+            height: 120px; 
+            object-fit: cover; 
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .paper-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .paper-title {
+            font-size: 1.25rem;
             font-weight: bold;
-            color: #b2132e;
-            margin-right: 8px;
+            color: var(--primary-blue, #003B5C);
+            margin-bottom: 8px;
+            display: block;
+            line-height: 1.4;
         }
 
-        .news-title {
-            font-weight: 500;
-            color: #333;
-        }
-
-        .news-venue {
+        .paper-author {
             font-style: italic;
+            display: block;
+            margin-bottom: 10px;
             color: #555;
+            font-size: 0.95rem;
         }
 
-        .news-links {
-            margin-top: 6px;
-            display: block; /* 链接换行显示 */
+        .paper-desc {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            text-align: justify;
+            display: block;
         }
 
-        .news-links a {
-            color: #52739e;
+        .paper-links a {
+            color: var(--accent-blue, #52739e);
             text-decoration: none;
             font-weight: bold;
             font-size: 0.9rem;
-            margin-right: 15px;
         }
 
-        .news-links a:hover {
+        .paper-links a:hover {
             text-decoration: underline;
             color: #b2132e;
+        }
+
+        /*自己加了一段*/
+        .paper-journal-muted {
+            color: #999;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .paper-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .paper-preview-img {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+            }
         }
     </style>
 </head>
@@ -71,6 +114,7 @@
             <p>Intelligent Neuroimaging for Computational Neuroscience</p>
         </div>
     </div>
+
 
     <div class="navigation-wrap">
         <div class="page-container">
