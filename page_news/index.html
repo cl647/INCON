@@ -6,108 +6,73 @@
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
     <link rel="stylesheet" type="text/css" href="assets/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gene Research - INCON Group</title>
+    <title>News - INCON Group</title>
     
     <link href="https://fonts.googleapis.com/css?family=Roboto%7CRoboto+Slab" rel="stylesheet">
 
     <style>
-        /* 针对论文列表的特定样式，仅在此页面生效 */
-        .paper-list {
+        .news-list {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: 20px 0;
         }
 
-        .paper-item {
+        .news-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 35px;
-            gap: 25px;
-            padding-bottom: 25px;
+            gap: 20px;
+            padding: 18px 0;
             border-bottom: 1px solid #f0f0f0;
         }
 
-        .paper-item:last-child {
+        .news-item:last-child {
             border-bottom: none;
-            margin-bottom: 0;
         }
 
-        .paper-preview-img {
-            width: 180px; 
-            height: 120px; 
-            object-fit: cover; 
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            flex-shrink: 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .paper-content {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .paper-title {
-            font-size: 1.25rem;
+        /* 固定日期宽度确保文字对齐 */
+        .news-date {
+            flex: 0 0 100px;
             font-weight: bold;
-            color: var(--primary-blue, #003B5C);
-            margin-bottom: 8px;
-            display: block;
-            line-height: 1.4;
+            color: #b2132e;
+            font-family: 'Roboto', sans-serif;
         }
 
-        .paper-author {
-            font-style: italic;
-            display: block;
-            margin-bottom: 10px;
-            color: #555;
-            font-size: 0.95rem;
-        }
-
-        .paper-desc {
-            font-size: 0.95rem;
-            color: #444;
+        .news-body {
+            flex: 1;
             line-height: 1.6;
-            margin-bottom: 15px;
-            text-align: justify;
-            display: block;
+            color: #333;
         }
 
-        .paper-links a {
-            color: var(--accent-blue, #52739e);
+        .news-title {
+            font-weight: bold;
+        }
+
+        .news-venue {
+            font-style: italic;
+            color: #555;
+        }
+
+        .news-links {
+            margin-top: 8px;
+            display: block; /* 强制链接换行 */
+        }
+
+        .news-links a {
+            color: #52739e;
             text-decoration: none;
             font-weight: bold;
             font-size: 0.9rem;
+            margin-right: 15px;
         }
 
-        .paper-links a:hover {
+        .news-links a:hover {
             text-decoration: underline;
             color: #b2132e;
-        }
-
-        /*自己加了一段*/
-        .paper-journal-muted {
-            color: #999;
-            font-style: italic;
-        }
-
-        @media (max-width: 768px) {
-            .paper-item {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .paper-preview-img {
-                width: 100%;
-                max-width: 300px;
-                height: auto;
-            }
         }
     </style>
 </head>
 
 <body>
-
     <div class="banner">
         <div class="page-container">
             <h1>INCON Group</h1>
@@ -115,13 +80,12 @@
         </div>
     </div>
 
-
     <div class="navigation-wrap">
         <div class="page-container">
             <table class="navigation">
                 <tr>
                     <td><a href="index.html">Home</a></td>
-                    <td><a class="current" title="News" href="page_news/index.html">News</a></td>
+                    <td><a class="current" href="page_news.html">News</a></td>
                     <td><a title="MRI" href="page_mri/index.html">Neuroimaging</a></td>
                     <td><a title="Tissue" href="page_tissue/index.html">Tissue Imaging</a></td>
                     <td><a title="Gene" href="page_gene/index.html">Imaging Genetics</a></td>
@@ -132,116 +96,162 @@
     </div>
 
     <div class="page-container">
-        News
         <section id="NewsBoard">
-            <h2>News</h2>
+            <h2>Latest News</h2>
             <ul class="news-list">
+
                 <li class="news-item">
-                    <span class="news-date">[2026.01]</span>
-                    <span class="news-title">"Generalized Spherical Neural Operators: Green's Function Formulation"</span> 
-                    has been accepted by <span class="news-venue">The Fourteenth International Conference on Learning Representations (ICLR 2026)</span>.
-                    <div class="news-links">
-                        <a href="doc/mri/p/GSNO_arxiv_ICLR.pdf" target="_blank">Paper</a> |
-                        <a href="https://github.com/haot2025/GSNO.git" target="_blank">Code</a>
-                    </div>
-                </li>
-                <li class="news-item">
-                    <span class="news-date">[2025.10]</span>
-                    <span class="news-title">"Adaptive Spatial Transcriptomics Interpolation via Cross-modal Cross-slice Modeling"</span> has been accepted by <span class="news-venue">MICCAI 2025</span>.
-                    <div class="news-links">
-                        <a href="https://arxiv.org/pdf/2505.10729" target="_blank">Paper</a> |
-                        <a href="https://github.com/XiaofeiWang2018/C2-STi" target="_blank">Code</a>
+                    <div class="news-date">[2026.01]</div>
+                    <div class="news-body">
+                        <span class="news-title">"Generalized Spherical Neural Operators: Green's Function Formulation"</span> has been accepted by <span class="news-venue">The Fourteenth International Conference on Learning Representations (ICLR 2026)</span>.
+                        <div class="news-links">
+                            <a href="doc/mri/p/GSNO_arxiv_ICLR.pdf" target="_blank">Paper</a> | <a href="https://github.com/haot2025/GSNO.git" target="_blank">Code</a>
+                        </div>
                     </div>
                 </li>
 
                 <li class="news-item">
-                    <span class="news-date">[2025.09]</span>
-                    <span class="news-title">"Score-Based Diffusion Model for Unpaired Virtual Histology Staining"</span> has been accepted by <span class="news-venue">CMMCA 2025</span>.
-                    <div class="news-links">
-                        <a href="doc/tissue/p/paper3.pdf" target="_blank">Paper</a>
+                    <div class="news-date">[2025.10]</div>
+                    <div class="news-body">
+                        <span class="news-title">"Adaptive Spatial Transcriptomics Interpolation via Cross-modal Cross-slice Modeling"</span> has been accepted by <span class="news-venue">MICCAI 2025</span>.
+                        <div class="news-links">
+                            <a href="https://arxiv.org/pdf/2505.10729" target="_blank">Paper</a> | <a href="https://github.com/XiaofeiWang2018/C2-STi" target="_blank">Code</a>
+                        </div>
                     </div>
                 </li>
 
                 <li class="news-item">
-                    <span class="news-date">[2025.09]</span>
-                    <span class="news-title">"OG-SAM: Enhancing Multi-organ Segmentation with Organogenesis-Based Adaptive Modeling"</span> has been accepted by <span class="news-venue">CMMCA 2025</span>.
-                    <div class="news-links">
-                        <a href="https://link.springer.com/chapter/10.1007/978-3-032-06624-4_9" target="_blank">Paper</a>
+                    <div class="news-date">[2025.09]</div>
+                    <div class="news-body">
+                        <span class="news-title">"Score-Based Diffusion Model for Unpaired Virtual Histology Staining"</span> has been accepted by <span class="news-venue">CMMCA 2025</span>.
+                        <div class="news-links">
+                            <a href="doc/tissue/p/paper3.pdf" target="_blank">Paper</a>
+                        </div>
                     </div>
                 </li>
 
                 <li class="news-item">
-                    <span class="news-date">[2025.05]</span>
-                    <span class="news-title">"Joint Modeling Histology and Molecular Markers for Cancer Classification"</span> has been published in <span class="news-venue">Medical Image Analysis</span>.
-                    <div class="news-links">
-                        <a href="doc/tissue/p/paper2.pdf" target="_blank">Paper</a> |
-                        <a href="https://github.com/LHY1007/M3C2.git" target="_blank">Code</a>
+                    <div class="news-date">[2025.09]</div>
+                    <div class="news-body">
+                        <span class="news-title">"OG-SAM: Enhancing Multi-organ Segmentation with Organogenesis-Based Adaptive Modeling"</span> has been accepted by <span class="news-venue">CMMCA 2025</span>.
+                        <div class="news-links">
+                            <a href="https://link.springer.com/chapter/10.1007/978-3-032-06624-4_9" target="_blank">Paper</a>
+                        </div>
                     </div>
                 </li>
 
                 <li class="news-item">
-                    <span class="news-date">[2024.10]</span>
-                    <span class="news-title">"Cross-modal Diffusion Modelling for Super-resolved Spatial Transcriptomics"</span> has been accepted by <span class="news-venue">MICCAI 2024</span>.
-                    <div class="news-links">
-                        <a href="doc/tissue/p/paper5.pdf" target="_blank">Paper</a> |
-                        <a href="https://github.com/XiaofeiWang2018/Diffusion-ST" target="_blank">Code</a>
+                    <div class="news-date">[2025.05]</div>
+                    <div class="news-body">
+                        <span class="news-title">"Joint Modeling Histology and Molecular Markers for Cancer Classification"</span> has been published in <span class="news-venue">Medical Image Analysis</span>.
+                        <div class="news-links">
+                            <a href="doc/tissue/p/paper2.pdf" target="_blank">Paper</a> | <a href="https://github.com/LHY1007/M3C2.git" target="_blank">Code</a>
+                        </div>
                     </div>
                 </li>
 
                 <li class="news-item">
-                    <span class="news-date">[2024.10]</span>
-                    <span class="news-title">"Unified Modeling Enhanced Multimodal Learning for Precision Neuro-Oncology"</span> has been accepted by <span class="news-venue">MICCAI 2024</span>.
-                    <div class="news-links">
-                        <a href="doc/tissue/p/paper6.pdf" target="_blank">Paper</a>
+                    <div class="news-date">[2025.01]</div>
+                    <div class="news-body">
+                        <span class="news-title">"Interpretable Multimodal Cancer Prototyping with Whole Images and Incompletely Paired Genomics"</span> has been published in <span class="news-venue">IEEE Transactions on Medical Imaging (TMI)</span>.
+                        <div class="news-links">
+                            <a href="doc/gene/p/Interpretable Multimodal Cancer Prototyping.pdf" target="_blank">Paper</a> | <a href="https://github.com/helenypzhang/Interpretable-Multimodal-Prototyping" target="_blank">Code</a>
+                        </div>
                     </div>
                 </li>
 
                 <li class="news-item">
-                    <span class="news-date">[2024.10]</span>
-                    <span class="news-title">"Genomics-Guided Representation Learning for Pathologic Pan-Cancer Tumor Microenvironment Subtype Prediction"</span> has been accepted by <span class="news-venue">MICCAI 2024</span>.
-                    <div class="news-links">
-                        <a href="https://link.springer.com/chapter/10.1007/978-3-031-72384-1_20" target="_blank">Paper</a>
+                    <div class="news-date">[2024.10]</div>
+                    <div class="news-body">
+                        <span class="news-title">"Cross-modal Diffusion Modelling for Super-resolved Spatial Transcriptomics"</span> has been accepted by <span class="news-venue">MICCAI 2024</span>.
+                        <div class="news-links">
+                            <a href="doc/tissue/p/paper5.pdf" target="_blank">Paper</a> | <a href="https://github.com/XiaofeiWang2018/Diffusion-ST" target="_blank">Code</a>
+                        </div>
                     </div>
                 </li>
 
                 <li class="news-item">
-                    <span class="news-date">[2024.09]</span>
-                    <span class="news-title">"Domain Game: Disentangle Anatomical Feature for Single Domain Generalized Segmentation"</span> has been accepted by <span class="news-venue">CMMCA 2024</span>.
-                    <div class="news-links">
-                        <a href="doc/tissue/p/paper8.pdf" target="_blank">Paper</a> |
-                        <a href="https://github.com/chqwer2/Domain-Game" target="_blank">Code</a>
+                    <div class="news-date">[2024.10]</div>
+                    <div class="news-body">
+                        <span class="news-title">"Unified Modeling Enhanced Multimodal Learning for Precision Neuro-Oncology"</span> has been accepted by <span class="news-venue">MICCAI 2024</span>.
+                        <div class="news-links">
+                            <a href="doc/tissue/p/paper6.pdf" target="_blank">Paper</a>
+                        </div>
                     </div>
                 </li>
 
                 <li class="news-item">
-                    <span class="news-date">[2023.10]</span>
-                    <span class="news-title">"Multi-task Learning of Histology and Molecular Markers for Classifying Diffuse Glioma"</span> has been accepted by <span class="news-venue">MICCAI 2023</span>.
-                    <div class="news-links">
-                        <a href="doc/tissue/p/paper7.pdf" target="_blank">Paper</a> |
-                        <a href="https://github.com/XiaofeiWang2018/DeepMO-Glioma-Code" target="_blank">Code</a>
+                    <div class="news-date">[2024.10]</div>
+                    <div class="news-body">
+                        <span class="news-title">"Genomics-Guided Representation Learning for Pathologic Pan-Cancer Tumor Microenvironment Subtype Prediction"</span> has been accepted by <span class="news-venue">MICCAI 2024</span>.
+                        <div class="news-links">
+                            <a href="https://link.springer.com/chapter/10.1007/978-3-031-72384-1_20" target="_blank">Paper</a>
+                        </div>
                     </div>
                 </li>
 
                 <li class="news-item">
-                    <span class="news-date">[2023.10]</span>
-                    <span class="news-title">"Knowledge-Driven Subspace Fusion and Gradient Coordination for Multi-modal Learning"</span> has been accepted by <span class="news-venue">MICCAI 2023</span>.
-                    <div class="news-links">
-                        <a href="doc/page_tissue/p/paper01.pdf" target="_blank">Paper</a> |
-                        <a href="https://github.com/helenypzhang/Subspace-Multimodal-Learning" target="_blank">Code</a>
+                    <div class="news-date">[2024.09]</div>
+                    <div class="news-body">
+                        <span class="news-title">"Domain Game: Disentangle Anatomical Feature for Single Domain Generalized Segmentation"</span> has been accepted by <span class="news-venue">CMMCA 2024</span>.
+                        <div class="news-links">
+                            <a href="doc/tissue/p/paper8.pdf" target="_blank">Paper</a> | <a href="https://github.com/chqwer2/Domain-Game" target="_blank">Code</a>
+                        </div>
                     </div>
                 </li>
 
                 <li class="news-item">
-                    <span class="news-date">[2021.07]</span>
-                    <span class="news-title">"Radiological tumour classification across imaging modality and histology"</span> has been published in <span class="news-venue">Nature Machine Intelligence</span>.
-                    <div class="news-links">
-                        <a href="https://www.nature.com/articles/s42256-021-00377-0" target="_blank">Paper</a>
+                    <div class="news-date">[2023.10]</div>
+                    <div class="news-body">
+                        <span class="news-title">"Multi-task Learning of Histology and Molecular Markers for Classifying Diffuse Glioma"</span> has been accepted by <span class="news-venue">MICCAI 2023</span>.
+                        <div class="news-links">
+                            <a href="doc/tissue/p/paper7.pdf" target="_blank">Paper</a> | <a href="https://github.com/XiaofeiWang2018/DeepMO-Glioma-Code" target="_blank">Code</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-date">[2023.10]</div>
+                    <div class="news-body">
+                        <span class="news-title">"Knowledge-Driven Subspace Fusion and Gradient Coordination for Multi-modal Learning"</span> has been accepted by <span class="news-venue">MICCAI 2023</span>.
+                        <div class="news-links">
+                            <a href="doc/page_tissue/p/paper01.pdf" target="_blank">Paper</a> | <a href="https://github.com/helenypzhang/Subspace-Multimodal-Learning" target="_blank">Code</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-date">[2021.10]</div>
+                    <div class="news-body">
+                        <span class="news-title">"Quantifying Structural Connectivity in Brain Tumor Patients"</span> has been accepted by <span class="news-venue">MICCAI 2021</span>.
+                        <div class="news-links">
+                            <a href="https://link.springer.com/chapter/10.1007/978-3-030-87234-2_49" target="_blank">Paper</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-date">[2021.07]</div>
+                    <div class="news-body">
+                        <span class="news-title">"Radiological tumour classification across imaging modality and histology"</span> has been published in <span class="news-venue">Nature Machine Intelligence</span>.
+                        <div class="news-links">
+                            <a href="https://www.nature.com/articles/s42256-021-00377-0" target="_blank">Paper</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-date">[2021.01]</div>
+                    <div class="news-body">
+                        <span class="news-title">"Structural connectome quantifies tumour invasion and predicts survival in glioblastoma patients"</span> has been published in <span class="news-venue">Brain</span>.
+                        <div class="news-links">
+                            <a href="doc/demo/p/Structural connectome quantifies tumour.pdf" target="_blank">Paper</a>
+                        </div>
                     </div>
                 </li>
 
             </ul>
         </section>
-        
     </div>
 
     <footer>
@@ -249,6 +259,5 @@
             &copy; 2026 Intelligent Neuroimaging for Computational Neuroscience | University of Cambridge
         </div>
     </footer>
-
 </body>
 </html>
